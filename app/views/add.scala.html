@@ -1,0 +1,14 @@
+@(message:String, form:Form[UserForm.Data])(implicit request: MessagesRequestHeader)
+
+@main("投稿","Add","copyright 2020."){
+
+  <div class="form">
+    @helper.form(action=routes.HomeController.create()) {
+        @helper.CSRF.formField
+        <p class="name-form">@helper.inputText(form("name"))</p>
+        @helper.textarea(form("message"))
+  </div>
+
+      <button>投稿する</button>
+  }
+}
